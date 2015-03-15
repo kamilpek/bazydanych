@@ -1,3 +1,7 @@
-Bazy Danych.
+Temat: Bazy Danych.
 
-Aktualizacja: 01.03.2015
+Zawartość: pliki skryptów bazy PostgreSQL.
+
+Autor: Kamil Pek
+
+Aktualizacja: 15.03.2015
