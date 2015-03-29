@@ -12,5 +12,19 @@ SELECT imie, nazwisko FROM klient K
 ;
 
 -- zad P8: użyj INNER JOIN szukając klientów, którzy złożyli zamówienia, 
--- znajdź klientów, którzy złożyli puste zamówienia (tzn. bez pozycji).
+SELECT imie, nazwisko FROM klient
+WHERE EXISTS (
+SELECT *
+FROM zamowienie INNER JOIN pozycja
+ON klient.nr=zamowienie.klient_nr
+AND pozycja.zamowienie_nr=zamowienie.nr
+);
 
+-- znajdź klientów, którzy złożyli puste zamówienia (tzn. bez pozycji).
+SELECT imie, nazwisko FROM klient
+WHERE NOT EXISTS (
+SELECT *
+FROM zamowienie INNER JOIN pozycja
+ON klient.nr=zamowienie.klient_nr
+AND pozycja.zamowienie_nr=zamowienie.nr
+);

@@ -26,9 +26,24 @@ SELECT imie, nazwisko FROM klient
 -- uwaga pierwsze rozwiązanie nie daje możliwości adaptacji do kolejnego pytania
 
 -- zad P7: wypisz 
--- daty złożenia zamówień nie mających żadnych pozycji, 
+-- daty złożenia zamówień nie mających żadnych pozycji,
+SELECT data_zlozenia FROM zamowienie 
+  WHERE zamowienie_nr IN (
+    SELECT zamowienie_nr FROM pozycja
+    )
+;
+ 
 -- opisy towarów niezamawianych, 
+
 -- opisy towarów z nieokreślonym kodem kreskowym
+SELECT kod, towar_nr FROM kod_kreskowy WHERE towar_nr is NULL;
+
+SELECT opis FROM towar 
+  WHERE towar is NULL (
+    SELECT kod FROM kod_kreskowy Z
+    )
+      ORDER BY opis
+;      
 -- (uwaga: są takie towary, to zapytanie może dawać nieoczekiwany wynik, 
 -- należy zachować ostrożność)
 

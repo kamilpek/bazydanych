@@ -47,4 +47,18 @@ ORDER BY nazwisko
 
 -- zad P12: zmodyfikuj podobnie zapytanie tak, by dotyczyło towarów
 -- zamiast pozycji.
-
+SELECT imie, nazwisko, count(DISTINCT(towar_nr)) AS towarow,
+       sum(ilosc * cena) AS suma,
+       sum(ilosc * (cena - koszt)) AS zysk
+FROM (  (  ( klient
+             INNER JOIN zamowienie
+                ON klient.nr = zamowienie.klient_nr
+           )
+           INNER JOIN pozycja
+              ON zamowienie.nr = pozycja.zamowienie_nr
+        )
+        INNER JOIN towar
+           ON pozycja.towar_nr = towar.nr
+     )
+GROUP BY klient.nr, imie, nazwisko
+ORDER BY nazwisko;
