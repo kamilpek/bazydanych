@@ -23,3 +23,5 @@ SELECT imie, nazwisko, miasto FROM klient
 -- wypisz opis i ceny towarów o powtarzających się cenach;
 -- to samo dla kosztu.
 
+SELECT cena, opis FROM towar WHERE cena IN 
+	(SELECT cena FROM towar GROUP BY cena HAVING count (cena) > 1 );

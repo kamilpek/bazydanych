@@ -1,0 +1,7 @@
+- wyjebac ziazek rozgrywa 
+- dac gospodarz gosc
+- sedzia sedziuje mecz wiele razy
+- wyjebac strzelcow
+- zawodnik bierze udizla w meczu - dodac atrybuty dla zwiazku
+- wynik obliczlany
+- wyjebac zwiazek ma miejsce
