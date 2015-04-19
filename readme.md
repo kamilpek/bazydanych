@@ -2,4 +2,4 @@ Bazy danych.
 Skrytpy PostgreSQL.
 
 Autor: Kamil Pek.
-Aktualizacja: 29.03.2015
+Aktualizacja: 19.04.2015
